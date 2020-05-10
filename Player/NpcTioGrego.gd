@@ -32,7 +32,7 @@ func _physics_process(delta):
 	elif actual_pos.y > 0:
 		input_vector.y =- 50
 	
-	print(input_vector.normalized())
+
 	animationTree.set("parameters/Andar/blend_position", input_vector.normalized())
 	animationState.travel("Andar")
 	
