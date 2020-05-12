@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://assets/fonts/Boxy-Bold.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://LoadServer.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 20
+font_data = ExtResource( 1 )
+
+[node name="LoadServerContainer" type="Node"]
+script = ExtResource( 2 )
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+margin_left = -28.5778
+margin_top = -11.1008
+margin_right = 349.422
+margin_bottom = 215.899
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 0.431213
+margin_top = 71.6056
+margin_right = 326.431
+margin_bottom = 116.606
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[wave] Carregando Servidor"
+text = " Carregando Servidor"
+__meta__ = {
+"_edit_use_anchors_": false
+}

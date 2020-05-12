@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/FugaDMaj.ogg-62ca2bb3f0295ac5f8f8cc9a9cc7520d.oggstr"
+
+[deps]
+
+source_file="res://assets/music/FugaDMaj.ogg"
+dest_files=[ "res://.import/FugaDMaj.ogg-62ca2bb3f0295ac5f8f8cc9a9cc7520d.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

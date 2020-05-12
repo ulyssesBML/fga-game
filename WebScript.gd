@@ -4,9 +4,10 @@ const Player = preload("res://Player/Player.tscn")
 var player_id = null
 var players_list = [] 
 var ws = null
+signal close_load_container
 
 func _ready():
-	self.connect("walk",Player,"_setNewPos")
+	Global.web_script = self
 	ws = WebSocketClient.new()
 	ws.connect("connection_established", self, "_connection_established")
 	ws.connect("connection_closed", self, "_connection_closed")
@@ -25,6 +26,7 @@ func _connection_closed():
 	print("Connection Closed")
 
 func _connection_error():
+	emit_signal("close_load_container")
 	var rng = RandomNumberGenerator.new()
 	var instance= Player.instance()
 	instance.id = str(rng.randi())
@@ -56,6 +58,7 @@ func _process(delta):
 			var type = buffer.get_u16()
 			match type:
 				1:
+					emit_signal("close_load_container")
 					player_id = buffer.get_string()
 					print("My id is %s !" % player_id)
 					var instance= Player.instance()

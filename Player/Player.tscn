@@ -1,7 +1,9 @@
-[gd_scene load_steps=40 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://assets/images/protagonistaspritesheet.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/8-bit-pusab.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://assets/music/FugaDMaj.ogg" type="AudioStream" id=4]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.95894
@@ -313,12 +315,17 @@ start_node = "Parado"
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=37]
 
+[sub_resource type="DynamicFont" id=38]
+size = 8
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=39]
+size = 6
+font_data = ExtResource( 3 )
+
 [node name="Player" type="KinematicBody2D"]
-position = Vector2( 0.0145798, -0.062933 )
+position = Vector2( -2.30187, -3.30596 )
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_group_": true
-}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
@@ -330,8 +337,8 @@ shape = SubResource( 1 )
 position = Vector2( -0.366357, 0.157011 )
 scale = Vector2( 1.00748, 0.983473 )
 texture = ExtResource( 1 )
-vframes = 5
-hframes = 5
+vframes = 4
+hframes = 6
 frame = 1
 region_rect = Rect2( 56, 20, 14, 18 )
 
@@ -358,5 +365,70 @@ parameters/Andando/blend_position = Vector2( -0.895476, -0.0181818 )
 parameters/Correndo/blend_position = Vector2( 0.850234, 0.0690908 )
 parameters/Parado/blend_position = Vector2( -0.825273, 0.0690908 )
 
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = -156.509
+margin_top = 75.4715
+margin_right = -48.5094
+margin_bottom = 99.4715
+rect_scale = Vector2( 0.793476, 0.48546 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Enviar" type="Button" parent="."]
+margin_left = -66.1694
+margin_top = 77.1885
+margin_right = -16.1694
+margin_bottom = 97.1885
+rect_scale = Vector2( 0.480133, 0.438066 )
+text = "Enviar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Speach" type="RichTextLabel" parent="."]
+margin_left = -20.5025
+margin_top = -47.3807
+margin_right = 149.498
+margin_bottom = -26.3807
+custom_fonts/normal_font = SubResource( 38 )
+tab_size = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nome" type="Label" parent="."]
+margin_left = -17.2701
+margin_top = -23.2869
+margin_right = 23.7299
+margin_bottom = -10.2869
+custom_fonts/font = SubResource( 39 )
+custom_colors/font_color = Color( 0.909804, 0.764706, 0.0588235, 0.694118 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 10.0
+autoplay = true
+max_distance = 2002.0
+
+[node name="Button" type="Button" parent="."]
+margin_left = -157.0
+margin_top = -88.0
+margin_right = -112.0
+margin_bottom = -68.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Mute"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="Enviar" to="." method="_on_Enviar_pressed"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

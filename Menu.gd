@@ -12,7 +12,7 @@ func _ready():
 
 
 func _on_Jogar_pressed():
-	get_tree().change_scene("res://World.tscn")
+	get_tree().change_scene("res://Lobby.tscn")
 
 
 func _on_Creditos_pressed():

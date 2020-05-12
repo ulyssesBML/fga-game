@@ -25,29 +25,28 @@ animations = [ {
 } ]
 
 [sub_resource type="DynamicFont" id=2]
-size = 40
-outline_color = Color( 0.345098, 0.192157, 0.0705882, 1 )
-extra_spacing_char = 1
-font_data = ExtResource( 8 )
-
-[sub_resource type="DynamicFont" id=3]
 size = 13
 font_data = ExtResource( 8 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=3]
 size = 9
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 45
+outline_color = Color( 0.14902, 0.607843, 0.0784314, 1 )
+extra_spacing_char = 5
 font_data = ExtResource( 8 )
 
 [node name="Menu" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 24.2071
-margin_top = 2.76051
+margin_top = 2.76052
 margin_right = 24.2071
-margin_bottom = 0.760513
+margin_bottom = 0.760529
 script = ExtResource( 10 )
 __meta__ = {
-"_edit_group_": true,
 "_edit_use_anchors_": false
 }
 
@@ -61,21 +60,8 @@ position = Vector2( 136.148, 85.9051 )
 scale = Vector2( 1.7784, 1.81514 )
 frames = SubResource( 1 )
 animation = "New Anim"
-frame = 3
+frame = 4
 playing = true
-
-[node name="Label" type="Label" parent="."]
-margin_left = 65.6296
-margin_top = 1.00571
-margin_right = 214.63
-margin_bottom = 94.0058
-custom_fonts/font = SubResource( 2 )
-text = "FGA
-GAME"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": false
-}
 
 [node name="Jogar" type="Button" parent="."]
 margin_left = 161.808
@@ -93,7 +79,7 @@ margin_left = 17.1289
 margin_top = 1.84465
 margin_right = 94.1289
 margin_bottom = 19.8447
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 2 )
 text = "Jogar"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -114,7 +100,21 @@ margin_left = 1.12968
 margin_top = 4.74466
 margin_right = 57.1297
 margin_bottom = 15.7447
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Creditos"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 53.0
+margin_top = 1.0
+margin_right = 276.0
+margin_bottom = 108.0
+custom_fonts/normal_font = SubResource( 4 )
+custom_colors/default_color = Color( 0.988235, 0.964706, 0.964706, 1 )
+bbcode_enabled = true
+bbcode_text = "[wave]FGA GAME"
+text = "FGA GAME"
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="pressed" from="Jogar" to="." method="_on_Jogar_pressed"]
 [connection signal="pressed" from="Creditos" to="." method="_on_Creditos_pressed"]

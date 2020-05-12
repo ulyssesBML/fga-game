@@ -1,0 +1,85 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://assets/images/protagonistaspritesheet.png" type="Texture" id=1]
+[ext_resource path="res://assets/images/profem.png" type="Texture" id=2]
+[ext_resource path="res://assets/fonts/8-bit-pusab.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Lobby.gd" type="Script" id=4]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( -1, 0, 17, 20 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 2 )
+region = Rect2( 0, 0, 16, 22 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 14
+font_data = ExtResource( 3 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.64383
+margin_top = -1.23513
+margin_right = 1.64383
+margin_bottom = -1.23512
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Male" type="Button" parent="."]
+margin_left = 87.0
+margin_top = 135.0
+margin_right = 116.0
+margin_bottom = 172.0
+disabled = true
+icon = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Female" type="Button" parent="."]
+margin_left = 197.117
+margin_top = 135.0
+margin_right = 226.117
+margin_bottom = 172.0
+disabled = true
+icon = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LineEdit" type="LineEdit" parent="."]
+margin_left = 86.0313
+margin_top = 53.616
+margin_right = 223.031
+margin_bottom = 85.616
+custom_fonts/font = SubResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+margin_left = 43.2291
+margin_top = 13.5091
+margin_right = 265.229
+margin_bottom = 43.5091
+custom_fonts/font = SubResource( 4 )
+text = "Digite seu nome"
+
+[node name="Label2" type="Label" parent="."]
+margin_left = 8.10547
+margin_top = 95.6444
+margin_right = 309.105
+margin_bottom = 121.644
+custom_fonts/font = SubResource( 5 )
+text = "Escolha seu personagem"
+[connection signal="pressed" from="Male" to="." method="_on_Male_pressed"]
+[connection signal="pressed" from="Female" to="." method="_on_Female_pressed"]
+[connection signal="text_changed" from="LineEdit" to="." method="_on_LineEdit_text_changed"]
